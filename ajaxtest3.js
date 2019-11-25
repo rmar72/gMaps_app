@@ -8,7 +8,7 @@ $(function(){
 
 googleMap.prototype.init = function(){
 	this._bindEvents();
-	this.initMap(39.81999969482422, -105.5);
+	this.paintMap(39.81999969482422, -105.5);
 };
 
 googleMap.prototype._bindEvents = function(){
@@ -28,7 +28,7 @@ googleMap.prototype._request = function(param){
 		data: {query:param},
 		dataType: "jsonp",
 		success: function(data) {
-			self.initMap(data.results[0].lat, data.results[0].lon );
+			self.paintMap(data.results[0].lat, data.results[0].lon );
 		},
 		failure:function(){
 			alert("Failed");
@@ -36,7 +36,7 @@ googleMap.prototype._request = function(param){
 	});
 };
 
-googleMap.prototype.initMap = function(param1, param2){
+googleMap.prototype.paintMap = function(param1, param2){
 	var uluru = {lat:param1, lng:param2};
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 4,
